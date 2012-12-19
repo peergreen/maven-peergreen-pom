@@ -67,7 +67,7 @@
   <scm>
     <connection>scm:git:https://forge.peergreen.com/git/git/maven/peergreen-pom.git</connection>
     <developerConnection>scm:git:https://forge.peergreen.com/git/git/maven/peergreen-pom.git</developerConnection>
-    <url>http://forge.peergreen.com/git/git/maven/peergreen-pom.git</url>
+    <url>https://forge.peergreen.com/git/summary/?r=maven/peergreen-pom.git</url>
   </scm>
 
   <!-- Distribution -->
