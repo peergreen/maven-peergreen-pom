@@ -41,13 +41,7 @@
   <url>http://www.peergreen.com</url>
 
   <!-- Who worked on this project ? -->
-  <developers>
-    <developer>
-      <id>guillaume.sauthier</id>
-      <name>Guillaume Sauthier</name>
-      <email>guillaume.sauthier@peergreen.com</email>
-    </developer>
-  </developers>
+  <developers />
 
   <properties>
     <!-- Avoid the annoying warning -->
@@ -61,21 +55,19 @@
     <maven-source-assemblies.version>1.0.1</maven-source-assemblies.version>
 
     <!-- Used plugins default versions (make them overridable) -->
-    <maven-assembly-plugin.version>2.3</maven-assembly-plugin.version>
+    <maven-assembly-plugin.version>2.4</maven-assembly-plugin.version>
     <maven-gpg-plugin.version>1.4</maven-gpg-plugin.version>
     <maven-javadoc-plugin.version>2.9</maven-javadoc-plugin.version>
     <maven-source-plugin.version>2.2.1</maven-source-plugin.version>
-    <maven-release-plugin.version>2.3.2</maven-release-plugin.version>
+    <maven-release-plugin.version>2.4</maven-release-plugin.version>
+    <maven-enforcer-plugin.version>1.2</maven-enforcer-plugin.version>
   </properties>
 
   <!-- Source Code Management -->
   <scm>
-<!--
-    <connection>scm:git:git@gitorious.ow2.org:ow2/pom.git</connection>
-    <developerConnection>scm:git:git@gitorious.ow2.org:ow2/pom.git</developerConnection>
-    <url>http://forge.peergreen.com/git</url>
-    <tag>HEAD</tag>
--->
+    <connection>scm:git:https://forge.peergreen.com/git/git/maven/peergreen-pom.git</connection>
+    <developerConnection>scm:git:https://forge.peergreen.com/git/git/maven/peergreen-pom.git</developerConnection>
+    <url>http://forge.peergreen.com/git/git/maven/peergreen-pom.git</url>
   </scm>
 
   <!-- Distribution -->
@@ -160,7 +152,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-enforcer-plugin</artifactId>
-        <version>1.0-beta-1</version>
+        <version>${maven-enforcer-plugin.version}</version>
         <executions>
           <execution>
             <id>enforce-maven</id>
