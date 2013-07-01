@@ -23,16 +23,7 @@
 
   <name>Peergreen POM</name>
 
-  <!-- License of this POM -->
-  <licenses>
-    <license>
-      <name>The Apache Software License, Version 2.0</name>
-      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-      <distribution>repo</distribution>
-    </license>
-  </licenses>
-
-  <!-- Consortium description -->
+  <!-- Company description -->
   <organization>
     <name>Peergreen</name>
     <url>http://www.peergreen.com</url>
@@ -55,12 +46,19 @@
     <maven-source-assemblies.version>1.0.1</maven-source-assemblies.version>
 
     <!-- Used plugins default versions (make them overridable) -->
+    <maven-jar-plugin.version>2.4</maven-jar-plugin.version>
+    <maven-compiler-plugin.version>3.1</maven-compiler-plugin.version>
     <maven-assembly-plugin.version>2.4</maven-assembly-plugin.version>
     <maven-gpg-plugin.version>1.4</maven-gpg-plugin.version>
-    <maven-javadoc-plugin.version>2.9</maven-javadoc-plugin.version>
+    <maven-javadoc-plugin.version>2.9.1</maven-javadoc-plugin.version>
     <maven-source-plugin.version>2.2.1</maven-source-plugin.version>
-    <maven-release-plugin.version>2.4</maven-release-plugin.version>
-    <maven-enforcer-plugin.version>1.2</maven-enforcer-plugin.version>
+    <maven-release-plugin.version>2.4.1</maven-release-plugin.version>
+    <maven-enforcer-plugin.version>1.3</maven-enforcer-plugin.version>
+
+    <!-- Configurable plugin options : default values -->
+    <compiler.source>1.7</compiler.source>
+    <compiler.target>1.7</compiler.target>
+    <jar.include.descriptor>false</jar.include.descriptor>
   </properties>
 
   <!-- Source Code Management -->
@@ -192,6 +190,30 @@
             <releaseProfiles>${pgReleaseProfiles}</releaseProfiles>
           </configuration>
         </plugin>
+
+        <!-- Do not add META-INF/maven/... files by default -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>${maven-jar-plugin.version}</version>
+          <configuration>
+            <archive>
+              <addMavenDescriptor>${jar.include.descriptor}</addMavenDescriptor>
+            </archive>
+          </configuration>
+        </plugin>
+
+        <!-- Compile from and for Java 7 -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>${maven-compiler-plugin.version}</version>
+          <configuration>
+            <source>${compiler.source}</source>
+            <target>${compiler.target}</target>
+          </configuration>
+        </plugin>
+
       </plugins>
     </pluginManagement>
 
