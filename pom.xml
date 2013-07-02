@@ -212,6 +212,12 @@
             <useReleaseProfile>false</useReleaseProfile>
             <!-- Our own release profile -->
             <releaseProfiles>${pgReleaseProfiles}</releaseProfiles>
+            <!-- Sub-modules inherit the version of their parents -->
+            <autoVersionSubmodules>true</autoVersionSubmodules>
+            <!-- Install the modules locally instead of just verify them -->
+            <preparationGoals>clean install</preparationGoals>
+            <!-- Do not add Xml Schema in the project document element -->
+            <addSchema>false</addSchema>
           </configuration>
         </plugin>
 
