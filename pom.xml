@@ -147,6 +147,7 @@
   </repositories>
 
   <build>
+
     <plugins>
 
       <!-- Enforce Maven version usage: excludes some that are known with defects -->
@@ -219,6 +220,13 @@
             <!-- Do not add Xml Schema in the project document element -->
             <addSchema>false</addSchema>
           </configuration>
+          <dependencies>
+            <dependency>
+              <groupId>com.peergreen.maven</groupId>
+              <artifactId>git-scm-provider</artifactId>
+              <version>1.0.0-SNAPSHOT</version>
+            </dependency>
+          </dependencies>
         </plugin>
 
         <!-- Do not add META-INF/maven/... files by default -->
