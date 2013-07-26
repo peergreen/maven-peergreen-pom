@@ -58,6 +58,7 @@
     <compiler.source>1.7</compiler.source>
     <compiler.target>1.7</compiler.target>
     <jar.include.descriptor>false</jar.include.descriptor>
+    <apache-rat-plugin.ignoreErrors>true</apache-rat-plugin.ignoreErrors>
   </properties>
 
   <!-- Source Code Management -->
@@ -204,7 +205,7 @@
               <goal>check</goal>
             </goals>
             <configuration>
-              <ignoreErrors>true</ignoreErrors>
+              <ignoreErrors>${apache-rat-plugin.ignoreErrors}</ignoreErrors>
               <includes>
                 <include>src/**</include>
                 <include>pom.xml</include>
