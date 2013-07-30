@@ -61,6 +61,10 @@
     <maven-bundle-plugin.version>2.3.7</maven-bundle-plugin.version>
     <bnd-ipojo-plugin.version>1.10.1</bnd-ipojo-plugin.version>
     <apache-rat-plugin.version>0.9</apache-rat-plugin.version>
+    <maven-clean-plugin.version>2.4.1</maven-clean-plugin.version>
+    <maven-deploy-plugin.version>2.7</maven-deploy-plugin.version>
+    <maven-install-plugin.version>2.4</maven-install-plugin.version>
+    <maven-site-plugin.version>3.3</maven-site-plugin.version>
 
     <!-- Configurable plugin options : default values -->
     <compiler.source>1.7</compiler.source>
@@ -160,7 +164,6 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-enforcer-plugin</artifactId>
-        <version>${maven-enforcer-plugin.version}</version>
         <executions>
           <execution>
             <!-- Cover all lifecycle with a 'validate' phase -->
@@ -304,7 +307,7 @@
             <!-- Sub-modules inherit the version of their parents -->
             <autoVersionSubmodules>true</autoVersionSubmodules>
             <!-- Install the modules locally instead of just verify them -->
-            <preparationGoals>clean install</preparationGoals>
+            <preparationGoals>clean install -Penforce-version-policy</preparationGoals>
             <!-- Do not add Xml Schema in the project document element -->
             <addSchema>false</addSchema>
           </configuration>
@@ -338,6 +341,36 @@
             <source>${compiler.source}</source>
             <target>${compiler.target}</target>
           </configuration>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-clean-plugin</artifactId>
+          <version>${maven-clean-plugin.version}</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>${maven-deploy-plugin.version}</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-install-plugin</artifactId>
+          <version>${maven-install-plugin.version}</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-site-plugin</artifactId>
+          <version>${maven-site-plugin.version}</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-enforcer-plugin</artifactId>
+          <version>${maven-enforcer-plugin.version}</version>
         </plugin>
 
       </plugins>
@@ -446,6 +479,36 @@
       </build>
 
     </profile>
+
+    <profile>
+      <id>enforce-version-policy</id>
+      <build>
+        <plugins>
+          <!-- - - - - - - - - - - - - - - - - - - - - - - -->
+          <!-- Ensure plugins have their version specified -->
+          <!-- - - - - - - - - - - - - - - - - - - - - - - -->
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-enforcer-plugin</artifactId>
+            <executions>
+              <execution>
+                <!-- Cover all lifecycle with a 'validate' phase -->
+                <id>enforce-plugin-version</id>
+                <goals>
+                  <goal>enforce</goal>
+                </goals>
+                <configuration>
+                  <rules>
+                    <requirePluginVersions/>
+                  </rules>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
   </profiles>
 
 
