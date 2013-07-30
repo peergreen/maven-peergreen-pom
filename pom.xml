@@ -27,6 +27,14 @@
 
   <url>http://www.peergreen.com</url>
 
+  <licenses>
+    <license>
+      <name>Peergreen Software License 1.0</name>
+      <url>http://www.peergreen.com/Legal/Peergreen+Community+Binary+Code+License+Agreement</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
   <!-- Who worked on this project ? -->
   <developers />
 
