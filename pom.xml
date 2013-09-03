@@ -71,6 +71,7 @@
     <compiler.target>1.7</compiler.target>
     <jar.include.descriptor>false</jar.include.descriptor>
     <apache-rat-plugin.ignoreErrors>true</apache-rat-plugin.ignoreErrors>
+    <bnd-plugin.attributes>metadata=${basedir}/src/main/bnd/ipojo.xml;use-local-schemas=true</bnd-plugin.attributes>
   </properties>
 
   <!-- Source Code Management -->
@@ -220,8 +221,8 @@
         <extensions>true</extensions>
         <configuration>
           <instructions>
-            <_include>${basedir}/src/main/bnd/instructions.bnd</_include>
-            <_plugin>org.apache.felix.ipojo.bnd.PojoizationPlugin;metadata=${basedir}/src/main/bnd/ipojo.xml;use-local-schemas=true</_plugin>
+            <_include>-src/main/bnd/instructions.bnd</_include>
+            <_plugin>org.apache.felix.ipojo.bnd.PojoizationPlugin;${bnd-plugin.attributes}</_plugin>
           </instructions>
         </configuration>
         <dependencies>
@@ -229,6 +230,12 @@
             <groupId>org.apache.felix</groupId>
             <artifactId>bnd-ipojo-plugin</artifactId>
             <version>${bnd-ipojo-plugin.version}</version>
+          </dependency>
+          <!-- Required when parsing iPOJO XML files -->
+          <dependency>
+            <groupId>xerces</groupId>
+            <artifactId>xercesImpl</artifactId>
+            <version>2.10.0</version>
           </dependency>
         </dependencies>
       </plugin>
