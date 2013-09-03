@@ -14,7 +14,7 @@
 
   <groupId>com.peergreen</groupId>
   <artifactId>peergreen-pom</artifactId>
-  <version>3-SNAPSHOT</version>
+  <version>3</version>
   <packaging>pom</packaging>
 
   <name>Peergreen POM</name>
@@ -79,7 +79,7 @@
     <connection>scm:git:https://forge.peergreen.com/git/git/maven/peergreen-pom.git</connection>
     <developerConnection>scm:git:https://forge.peergreen.com/git/git/maven/peergreen-pom.git</developerConnection>
     <url>https://forge.peergreen.com/git/summary/?r=maven/peergreen-pom.git</url>
-    <tag>HEAD</tag>
+    <tag>PEERGREEN_POM_3</tag>
   </scm>
 
   <!-- Distribution -->
