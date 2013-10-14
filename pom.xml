@@ -62,7 +62,7 @@
     <bnd-ipojo-plugin.version>1.10.1</bnd-ipojo-plugin.version>
     <apache-rat-plugin.version>0.10</apache-rat-plugin.version>
     <maven-clean-plugin.version>2.5</maven-clean-plugin.version>
-    <maven-deploy-plugin.version>2.7</maven-deploy-plugin.version>
+    <maven-deploy-plugin.version>2.8</maven-deploy-plugin.version>
     <maven-install-plugin.version>2.4</maven-install-plugin.version>
     <maven-site-plugin.version>3.3</maven-site-plugin.version>
     <maven-resources-plugin.version>2.6</maven-resources-plugin.version>
