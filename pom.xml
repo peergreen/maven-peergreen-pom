@@ -49,6 +49,9 @@
     <pgReleaseProfiles>pg-release</pgReleaseProfiles>
     <maven-source-assemblies.version>1.0.1</maven-source-assemblies.version>
 
+    <!-- Use of default versions -->
+    <ipojo-annotations.version>1.11.0</ipojo-annotations.version>
+
     <!-- Used plugins default versions (make them overridable) -->
     <maven-jar-plugin.version>2.4</maven-jar-plugin.version>
     <maven-compiler-plugin.version>3.1</maven-compiler-plugin.version>
@@ -158,6 +161,18 @@
     </repository>
 
   </repositories>
+
+
+  <dependencyManagement>
+    <dependencies>
+      <!-- Specify the iPOJO annotation version in order to match the ipojo plugin's version -->
+      <dependency>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>org.apache.felix.ipojo.annotations</artifactId>
+        <version>${ipojo-annotations.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 
   <build>
 
